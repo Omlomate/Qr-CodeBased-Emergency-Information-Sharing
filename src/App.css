@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  
+}
+
+ 
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background: #fff5e0;
+}
+
+.main-content {
+  /* margin-left: 270px;  */
+  padding: 20px;
+  flex-grow: 1; 
+  background: linear-gradient(to bottom, #ffefd5, #fff5e0);
+}
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
