@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../assets/Login.css'; // Import CSS file for styling
+import '../assets/Login.css'; // Import updated CSS file for styling
 
 function Login() {
-  const [email, setEmail] = useState(''); // State for email
-  const [password, setPassword] = useState(''); // State for password
-  const [error, setError] = useState(''); // State for error messages
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-
-  
-  // Function to handle login
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -21,24 +18,23 @@ function Login() {
       });
       const { token, name, userDetails } = response.data;
 
-      
-  
       // Store data in localStorage
-      localStorage.setItem('token', token); // Store JWT token
-      localStorage.setItem('username', name); // Store username
-      localStorage.setItem('userDetails', JSON.stringify(userDetails)); // Store userDetails object as a string
-  
-      navigate('/dashboard'); // Redirect to dashboard
+      localStorage.setItem('token', token);
+      localStorage.setItem('username', name);
+      localStorage.setItem('userDetails', JSON.stringify(userDetails));
+
+      navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');
     }
   };
-  
+
   return (
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <h2>Login</h2>
+          <h2>Emergency Info Sharing QR </h2>
+          <p className="login-subtitle">Access your QR-based emergency information system</p>
         </div>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleLogin}>
@@ -69,10 +65,10 @@ function Login() {
             </a>
           </div>
           <button type="submit" className="btn-login">
-            Sign in
+            Sign In
           </button>
           <p className="signup-text">
-            Don't have an account? <a href="/register">Sign up</a>
+            Don’t have an account? <a href="/register">Sign up</a>
           </p>
         </form>
       </div>

@@ -209,6 +209,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-left: 40%;
 }
 
 .submit-btn:hover {

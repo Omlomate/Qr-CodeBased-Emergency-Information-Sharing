@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../assets/Register.css"; // Link your CSS file for styling
+import "../assets/Register.css"; // Link updated CSS file for styling
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -34,6 +34,10 @@ function Register() {
   return (
     <div className="register-container">
       <div className="register-card">
+        <div className="register-header">
+          <h2>Join Emergency Info</h2>
+          <p className="register-subtitle">Create an account for your QR-based emergency system</p>
+        </div>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
