@@ -35,12 +35,12 @@ function Register() {
     <div className="register-container">
       <div className="register-card">
         <div className="register-header">
-          <h2>Join Emergency Info</h2>
+          <h2>Join Emergency Info Sharing QR</h2>
           <p className="register-subtitle">Create an account for your QR-based emergency system</p>
         </div>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="register-form-group">
             <input
               type="text"
               name="name"
@@ -50,7 +50,7 @@ function Register() {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="register-form-group">
             <input
               type="email"
               name="email"
@@ -60,7 +60,7 @@ function Register() {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="register-form-group">
             <input
               type="password"
               name="password"

@@ -38,7 +38,7 @@ function Login() {
         </div>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleLogin}>
-          <div className="form-group">
+          <div className="login-form-group">
             <input
               type="email"
               placeholder="Email"
@@ -47,7 +47,7 @@ function Login() {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="login-form-group">
             <input
               type="password"
               placeholder="Password"
@@ -56,7 +56,7 @@ function Login() {
               required
             />
           </div>
-          <div className="options">
+          <div className="login-options">
             <label>
               <input type="checkbox" /> Remember me
             </label>

@@ -1,82 +1,173 @@
 .register-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe6e6 100%); /* White to light red gradient */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f9ebf3;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
 }
 
 .register-card {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
   width: 100%;
-  text-align: center;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .register-header {
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.register-logo {
-  width: 80px;
-  height: 80px;
+.register-header h2 {
+  font-size: 2rem;
+  color: #c0392b; /* Red for emergency theme */
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.form-row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.form-group.terms {
-  text-align: left;
-}
-
-.form-group.terms input {
-  margin-right: 5px;
-}
-
-.btn-register {
-  background-color: #e91e63;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  width: 100%;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.btn-register:hover {
-  background-color: #c2185b;
-}
-
-.login-text {
-  margin-top: 15px;
-}
-
-.login-text a {
-  color: #e91e63;
-  text-decoration: none;
+.register-subtitle {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.4;
 }
 
 .error-text {
-  color: red;
-  font-size: 14px;
-  margin-bottom: 10px;
+  color: #e74c3c; /* Red error text */
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  background: #fff0f0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e74c3c;
+}
+
+.register-form-group {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.register-form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.register-form-group input:focus {
+  outline: none;
+  border-color: #e74c3c; /* Red focus border */
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.4), inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  transform: translateY(-1px);
+}
+
+.register-form-group input::placeholder {
+  color: #a0aec0;
+}
+
+.btn-register {
+  width: 100%;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); /* Red gradient */
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-register:hover {
+  background: linear-gradient(135deg, #f15a47 0%, #e74c3c 100%); /* Lighter red gradient */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(231, 76, 60, 0.6);
+}
+
+.btn-register:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-register::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s ease;
+}
+
+.btn-register:hover::before {
+  left: 100%; /* Shine effect on hover */
+}
+
+.login-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.login-text a {
+  color: #e74c3c; /* Red link */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.login-text a:hover {
+  color: #c0392b;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-card {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .register-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .register-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .btn-register {
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
