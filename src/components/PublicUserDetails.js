@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../assets/PublicUserDetails.css"; // New CSS file for specific styling
+import "../assets/PublicUserDetails.css";
+import { FaPhone } from "react-icons/fa";
 
 function PublicUserDetails() {
   const { id } = useParams();
@@ -19,6 +20,16 @@ function PublicUserDetails() {
     };
     fetchPublicData();
   }, [id]);
+
+  const handleCallEmergencyContact = (number) => {
+    if (number) {
+      window.location.href = `tel:${number}`;
+    }
+  };
+
+  const handleCallAmbulance = () => {
+    window.location.href = "tel:108"; // Adjust ambulance number as needed
+  };
 
   if (error) {
     return (
@@ -53,6 +64,31 @@ function PublicUserDetails() {
               alt="Profile"
               className="profile-image"
             />
+          </div>
+        )}
+        {/* New Emergency Call Container */}
+        {(userData.emergencyDetails?.primaryEmergencyContact?.contactNumber || 
+          userData.emergencyDetails?.secondaryEmergencyContact?.contactNumber) && (
+          <div className="emergency-call-container">
+            {userData.emergencyDetails.primaryEmergencyContact?.contactNumber && (
+              <button 
+                className="call-btn" 
+                onClick={() => handleCallEmergencyContact(userData.emergencyDetails.primaryEmergencyContact.contactNumber)}
+              >
+                <FaPhone /> Call Primary Contact
+              </button>
+            )}
+            {userData.emergencyDetails.secondaryEmergencyContact?.contactNumber && (
+              <button 
+                className="call-btn" 
+                onClick={() => handleCallEmergencyContact(userData.emergencyDetails.secondaryEmergencyContact.contactNumber)}
+              >
+                <FaPhone /> Call Secondary Contact
+              </button>
+            )}
+            <button className="ambulance-btn" onClick={handleCallAmbulance}>
+              <FaPhone /> Call Ambulance
+            </button>
           </div>
         )}
         {userData.name && (
